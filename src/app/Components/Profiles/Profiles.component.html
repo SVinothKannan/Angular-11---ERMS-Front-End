@@ -1,0 +1,276 @@
+<br /><br />
+<style>
+  .LeftFix {
+    position: fixed;
+    left: 10px;
+    top: 10;
+    width: 25%;
+    height: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .h-md-100 {
+      height: 100vh;
+    }
+  }
+
+  .btn-round {
+    border-radius: 30px;
+  }
+
+  .text-cyan {
+    color: #35bdff;
+  }
+</style>
+<div class="container-fluid" style="margin-top:-2% !important;">
+  <div class="row">
+    <div class="col-sm-12">
+      <Span><i class="fa fa-users"></i>&nbsp;Employee Profile / Job Info</Span>
+    </div>
+
+  </div>
+</div>
+<div class="d-md-flex h-md-100 align-items-center" id="top">
+
+  <!-- First Half -->
+
+  <div class="LeftFix" style="top:16% !important;height:100%;">
+    <div class="text-white d-md-flex align-items-center h-100 p-5" style="height:100%;">
+      <div class="logoarea pt-5 pb-5">
+        <br />
+
+        <div class="row"
+          style="margin-left:5px;box-shadow: 2px 2px 2px 2px #999;width: 85%;height:430px;background-color:#fff;">
+          <br />
+          <div style="text-align: center;"><i class="fa fa-filter"></i>&nbsp;&nbsp;Filters<br />
+            <hr />
+          </div>
+
+          <div class="col-sm-8">
+            &nbsp;<label style="font-size:small !important;color:teal;"><i class="fa fa-users"></i>&nbsp;Employee
+              Type</label><br />
+            <select
+              style="width:220px;height:32px !important;border:1px solid #888; border-radius:5px;font-size:small !important;"
+              class="form-control" (change)="Locfilter(Emptypevalues.value!='0'?Emptypevalues.value:false)" #Emptypevalues>
+              <option value="0">---Select Employee Type---</option>
+              <option value="true"><i class="fa fa-users"></i>Line Managers</option>
+              <option value="false"><i class="fa fa-users"></i>Employees</option>
+            </select>
+          </div>
+          <div class="col-sm-8"><br />
+            &nbsp;<label style="font-size:small !important;color:teal;"><i class="fa fa-map-marker"></i>&nbsp;Location
+              Wise</label><br />
+            <select
+              style="width:220px;height:32px !important;border:1px solid #888; border-radius:5px;font-size:small !important;"
+              data-placeholder="Choose a Country..." class="form-control" tabindex="-1"
+              (change)="Locfilter(Locvalues.value!='0'?Locvalues.value:false)" #Locvalues>
+              <option value="0" style="margin:10px;">---Select Location---</option>
+              <option *ngFor="let user of Locationlist" [value]="user.location"><i
+                  class="fa fa-map-marker"></i>&nbsp;{{user.location}}</option>
+            </select>
+          </div>
+          <div class="col-sm-8"><br />
+            &nbsp;<label style="font-size:small !important;color:teal;"><i class="fa fa-cogs"></i>&nbsp;Skill
+              Sets</label><br />
+            <select
+              style="width:220px;height:32px !important;border:1px solid #888; border-radius:5px;font-size:small !important;"
+              data-placeholder="Choose a Country..." class="form-control" tabindex="-1"
+              (change)="Locfilter(SkillValues.value!='0'?SkillValues.value:'0')" #SkillValues>
+              <option value="0" style="margin:10px;">---Select SkillSet---</option>
+              <option *ngFor="let user of SkillSetList" [value]="user.skillsId"><i
+                  class="fa fa-map-marker"></i>&nbsp;{{user.skillName}}</option>
+            </select>
+          </div>
+          <div class="col-sm-12"><br />
+
+            <div class="col-sm-6">
+              <label style="font-size:small !important;color:teal;"><i class="fa fa-table"></i>&nbsp;In-Bench</label>
+              <br /><input type="checkbox" (change)="Locfilter(BenchValue.value)" #BenchValue>&nbsp;
+            </div>
+            <div class="col-sm-6">
+              <label style="font-size:small !important;color:teal;"><i class="fa fa-home"></i>&nbsp;In-WFH</label><br />
+              <input type="checkbox" (change)="Locfilter(WFHValue.value)"   #WFHValue>&nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Half -->
+
+  <div class="col-md-9 p-0 bg-white h-md-100 loginarea"
+    style="left:24%;height:100%;overflow-x:hidden;overflow-y:scroll;" id="topd">
+    <br />
+    <div id="uio" style="box-shadow: 2px 2px 2px 2px #999;background-color:#fff;height: 35px;
+    padding: 8px;">
+      <div class="col-sm-12">
+        <div class="col-sm-4">
+          <Span>Showing: <Span>{{first}}</Span> to <Span>{{last}}</Span> of <Span>{{totalrecords}}</Span> Results</Span>
+        </div>
+        <div class="col-sm-3">
+          <span style="text-align:center;    margin-left: 70%;
+      border: 2px solid blueviolet;
+      padding: 2px 6px 2px 6px;">{{activePage}}</span>
+        </div>
+        <div class="col-sm-5 pull-right" style="margin-right:-20%;">
+          <span style="color:#fff;">Sort By:&nbsp;&nbsp;</span>
+          <select id="exampleOption">
+            <option value="1">Relevance</option>
+            <option value="2">Names (A-Z)</option>
+            <option value="3">Names (Z-A)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="d-md-flex align-items-center h-md-100 p-5" id="tops">
+      <ngx-spinner *ngIf="loading">
+        <p style="color:red !important" id="loader"></p>
+        <div style="margin-left: 58px;color:#FFF !important;">
+          <div id="inTurnFadingTextG_1" class="inTurnFadingTextG">s</div>
+          <div id="inTurnFadingTextG_2" class="inTurnFadingTextG">e</div>
+          <div id="inTurnFadingTextG_3" class="inTurnFadingTextG">a</div>
+          <div id="inTurnFadingTextG_4" class="inTurnFadingTextG">r</div>
+          <div id="inTurnFadingTextG_5" class="inTurnFadingTextG">c</div>
+          <div id="inTurnFadingTextG_6" class="inTurnFadingTextG">h</div>
+          <div id="inTurnFadingTextG_7" class="inTurnFadingTextG">i</div>
+          <div id="inTurnFadingTextG_7" class="inTurnFadingTextG">n</div>
+          <div id="inTurnFadingTextG_7" class="inTurnFadingTextG">g ...</div>
+        </div>
+      </ngx-spinner>
+      <div *ngIf="EmployeesList?.length>0;else nodata">
+        <div class="row" style="box-shadow: 2px 2px 2px 2px #999;margin-top:19px;
+        padding: 5px;width:100%;margin-left:0%;border: 1px solid #eee;
+      border-radius: 4px;background-color: #fff;" *ngFor="let user of EmployeesList;let index= index;">
+          <div class="row" style="border-bottom: 1px solid #eee;height:28px;padding-left: 2%;
+      padding-right: 2%;">
+            <button class="btn btn-xs btn-default pull-left" style="background-color:blue; color:white;"><i
+                class="fa fa-report"></i>{{user.empName}} - <span style="color:rgb(255, 196, 0);font-weight:bold;"
+                title="Portal-Id / EmpNo">{{user.portalId}} / {{user.empNo}}</span></button>
+            <a class="btn btn-xs btn-default pull-right" style="background-color:red; color:white;"><i
+                class="fa fa-report"></i> {{user.expDetail}} </a>
+          </div>
+          <br />
+
+          <div *ngIf="user?.images!='';else nodata">
+            <div class="col-sm-4">
+              <div class="fotorama" data-width="280" data-maxwidth="100%" data-ratio="16/9" data-autoplay="true"
+                data-allowfullscreen="true">
+
+                <img [src]="Images" *ngFor="let Images of user.images?.split(',')">
+
+              </div>
+
+
+              <br />
+              <span *ngIf="user.inBench"
+                style="font-size:small;font-weight:bold;border-radius:4px;color:red;margin:37%;top:0"><i
+                  class="fa fa-clock-o" style="font-weight:bold;">&nbsp;In-Bench</i></span>
+            </div>
+          </div>
+
+          <ng-template #nodata>
+            <div class="col-sm-4">
+              <div class="fotorama" data-width="280" data-maxwidth="100%" data-ratio="16/9" data-autoplay="true"
+                data-allowfullscreen="true">
+
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1200px-No-Image-Placeholder.svg.png">
+
+
+              </div>
+
+
+              <br />
+
+              <span *ngIf="user.inBench"
+                style="font-size:small;font-weight:bold;border-radius:4px;color:red;margin:80px;top:0"><i
+                  class="fa fa-clock-o" style="font-weight:bold;">&nbsp;In-Bench</i></span>
+
+
+            </div>
+          </ng-template>
+
+
+
+          <div class="col-sm-4">
+            <p style="font-size: small;"><i class="fa fa-work"></i><span style="font-size: small;font-weight:bold;"><i
+                  class="fa fa-address-card"></i> &nbsp;{{user.jobTitle}} <span *ngIf="user.isLineManager" style="color:blue">/ Line Manager</span></span></p>
+          </div>
+          <div class="col-sm-4">
+            <p style="font-size: small;"><i class="fa fa-work"></i><span style="font-size: small;font-weight:bold;"><i
+                  class="fa fa-envelope"></i> &nbsp;<b>{{user.email}}</b></span></p>
+          </div>
+          <div class="col-sm-4">
+            <div class="tooltip"><i class="fa fa-users"></i>&nbsp;<b>{{user.hlMgr}}</b>
+              <span class="tooltiptext">Hard Line Manager</span>
+            </div>
+
+
+          </div>
+          <div class="col-sm-4">
+            <p style="font-size: small;"><i class="fa fa-work"></i><span style="font-size: small;font-weight:bold;"><i
+                  class="fa fa-mobile"></i> &nbsp;{{user.mobile}}</span></p>
+          </div>
+          <div class="col-sm-4" *ngIf="user.isWFH">
+            <p style="font-size: small;"><i class="fa fa-work"></i><span
+                style="font-size: small;font-weight:bold;color:cornflowerblue"><i class="fa fa-home"></i> &nbsp;Remote
+                Work</span></p>
+          </div>
+          <div class="col-sm-4" *ngIf="!user.isWFH">
+            <p style="font-size: small;"><i class="fa fa-work"></i><span
+                style="font-size: small;font-weight:bold;color:cornflowerblue"><i class="fa fa-building-o"></i> &nbsp;In
+                Office</span></p>
+          </div>
+          <div class="col-sm-4">
+            <p style="font-size: small;"><i class="fa fa-work"></i><span style="font-size: small;font-weight:bold;"><i
+                  class="fa fa-map-marker"></i> &nbsp;{{user.address}}</span></p>
+          </div>
+          <div class="col-sm-8">
+            <p style="font-size: small;font-weight:bold;"><i class="fa fa-tasks"></i>&nbsp; Project:<span
+                style="color:rgba(16, 16, 190, 0.911)">&nbsp;&nbsp;{{user.project}}</span></p>
+          </div>
+          <div class="col-sm-8">
+            <p style="font-size: small;font-weight:bold;"><i class="fa fa-cogs"></i><span>&nbsp;&nbsp;Skill Sets:</span>
+            </p>
+          </div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-8">
+            <div class="tooltip" style="font-size: small;font-weight:bold;"><i class="fa fa-book"></i>&nbsp;&nbsp;<span
+                style="color: brown;">{{user.skillSets}}</span> <span
+                style="font-size:x-small;">&nbsp;&nbsp;More....</span>
+              <span class="tooltiptext">{{user.skillSets2}}</span>
+            </div>
+          </div>
+          <br />
+          <div class="row" style="border-top:1px solid #eee;margin-top: 23%;padding-left: 2%;
+          padding-right: 2%;">
+            <div style="margin-top:5px;">
+              <a class="btn btn-xs btn-warning pull-left" [routerLink]="['/ViewProfile',user.empId]"><i class="fa fa-eye"></i> View Profile </a>
+
+              <a class="btn btn-xs btn-success  pull-right" style="margin-left: 15px;"><i class="fa fa-envelope"></i>
+                Send Mail&nbsp;&nbsp;</a>
+              <a class="btn btn-xs btn-default  pull-right"><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp; Like
+                &nbsp;&nbsp;</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <ng-template #nodata style="text-align:center !important; margin-top:45px;color: brown;">
+        <div style="text-align:center !important; margin-top:45px;color: brown;"><b>Employee Profiles not
+            available!</b><br /><br /><i class="fa fa-filter" style="font-size:xx-large;"></i></div>
+      </ng-template>
+      <div style="text-align:center;">
+        <app-pagination [totalRecords]="totalrecords" [recordsPerPage]="recordsPerPage"
+          (onPageChange)="displayActivePage($event)"></app-pagination>
+      </div>
+      <br /><br /><br /><br /><br /><br />
+
+    </div>
+
+  </div>
+
+
+</div>

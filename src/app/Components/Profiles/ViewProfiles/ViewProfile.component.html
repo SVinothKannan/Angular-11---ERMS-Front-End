@@ -1,0 +1,352 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+    #loader,
+    #loader:after {
+        border-radius: 50%;
+        width: 10em;
+        height: 10em;
+    }
+
+    #loader {
+
+        font-size: 5px;
+        text-indent: -9999em;
+        border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-left: 1.1em solid #ffffff;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation: load8 3s infinite linear;
+        animation: load8 3s infinite linear;
+    }
+
+    @-webkit-keyframes load8 {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes load8 {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<br /><br /><br />
+<div class="container-fluid" style="margin-top:-3% !important;">
+    <div class="row">
+        <div class="col-sm-12">
+            <Span style="color:rgb(14 51 95);font-weight:bold;"><i class="fa fa-users"></i>&nbsp;View Profile / Employee
+                Profile Info</Span>
+            <hr style="background:rgb(14 51 95);" />
+        </div>
+
+    </div>
+</div>
+
+<div class="container bootstrap snippets bootdey" style="margin-top:0em;">
+    <div class="row">
+        <ngx-spinner *ngIf="loading">
+            <p style="color:red !important" id="loader"></p>
+        </ngx-spinner>
+        <div class="profile-nav col-md-3">
+            <div class="panel">
+                <div class="user-heading round"
+                    style="padding:8px !important; background:rgb(14 51 95);margin-top: -2px;box-shadow:2px -2px 4px 2px #e8e8e8 !important;">
+                    <a href="#">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                    </a>
+                    <h1>Camila Smith</h1>
+                    <p>deydey@theEmail.com</p>
+                </div>
+                <ul class="nav nav-pills nav-stacked">
+                    <button class="btn btn-info"
+                        style="width: 100%;box-shadow:0px 0px 8px 0px rgb(14 51 95);border:none !important; border-radius: 0px !important;">
+                        <i class="fa fa-envelope"></i>&nbsp;&nbsp;Send Mail</button>
+                </ul>
+            </div>
+            <div class="panel">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h5 class="mb-0" style="color:red;"><i class="fa fa-globe"></i>&nbsp;Website&nbsp;&nbsp;<br />
+                            <br />
+                            <span style="color:rgba(10, 10, 10, 0.932);">https://vinothgithub.github.com</span>
+
+                        </h5>
+
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h5 class="mb-0" style="color:red;"><i class="fa fa-github"></i>&nbsp;Github&nbsp;&nbsp;<br />
+                            <br /><span style="color:rgba(10, 10, 10, 0.932);;">https://vinothgithub.github.com</span>
+                        </h5>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="panel">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h5 class="mb-0" style="color:red;"><i class="fa fa-cogs"></i>&nbsp;Domain Knowledge
+                            <hr />
+                            <span style="color:rgba(10, 10, 10, 0.932);">Healthcare & Lifescienses</span>
+                        </h5>
+                        <span class="fa fa-star checked" style="color: cornflowerblue;"></span>
+                        <span class="fa fa-star checked" style="color: cornflowerblue;"></span>
+                        <span class="fa fa-star checked" style="color: cornflowerblue;"></span>
+                        <span class="fa fa-star" style="color: cornflowerblue;"></span>
+                        <span class="fa fa-star"></span>
+
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h5 class="mb-0">
+                            <span style="color:rgba(10, 10, 10, 0.932);">Hospitality & Tourism</span>
+                        </h5>
+                        <span class="fa fa-star checked" style="color: cornflowerblue;"></span>
+                        <span class="fa fa-star checked" style="color: cornflowerblue;"></span>
+                        <span class="fa fa-star checked" style="color: cornflowerblue;"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h5 class="mb-0">
+                            <span style="color:rgba(10, 10, 10, 0.932);">Financial & Banking</span>
+                        </h5>
+                        <span class="fa fa-star checked" style="color: cornflowerblue;"></span>
+                        <span class="fa fa-star checked" style="color: cornflowerblue;"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="profile-info col-md-9">
+            <div class="panel" style="box-shadow:2px -2px 4px 2px #e8e8e8 !important;">
+                <h5
+                    style="float:left !important;font-weight:bold;padding:5px;color: #fff;background-color:rgb(14 51 95);">
+                    &nbsp;Description Summary:</h5>
+                <div class="bio-graph-heading" style="background-color:rgb(14 51 95);">
+
+                    I have 6+ years of experience in Microsoft technologies like C#, Asp.Net MVC, Asp.Net Core API, Web
+                    API, Angualr 10+, React Js with redux, Ms SQL
+                </div>
+                <div class="panel-body bio-graph-info">
+                    <h4>Basic Information</h4>
+                    <hr />
+                    <div class="row">
+                        <div class="bio-row">
+                            <p><span>First Name </span>: Camila</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Last Name </span>: Smith</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Country </span>: Australia</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Birthday</span>: 13 July 1983</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Occupation </span>: UI Designer</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Email </span>: jsmith@flatlab.com</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Mobile </span>: (12) 03 4567890</p>
+                        </div>
+                        <div class="bio-row">
+                            <p><span>Phone </span>: 88 (02) 123456</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel" style="box-shadow:2px -2px 4px 2px #e8e8e8 !important;">
+
+                            <div class="bio-graph-heading"
+                                style="box-shadow:2px -2px 4px 2px #e8e8e8 !important;padding:15px !important; background-color:rgb(14 51 95); border:none !important;">
+                                <h4 style="float:left;margin-top:-12px;">Experience summary</h4>
+                            </div>
+                            <div class="panel-body bio-graph-info">
+                                <div class="row">
+                                    <div class="col-lg-12">1.
+                                        <span style="color:rgb(14 51 95);"><img style="width:5%;"
+                                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAB6VBMVEX///81GlVMYJsqTId0b6eZVY4fPXCvM3kZTIg0aKO+JmrUUlxMjcvgZU80mLMuDFByZ4QiAEn49/oyFVMKpJbCvsn1fyoAqnX4mChGMWFSPW3+wSdPump+xF8eAEf+1icQAECMg5lBV5b+vAAeXZ0APoEsCE+TR4fSSVTeWT/fX0cApWsAPIAAL2ghRoTMyNN7cYxAKV7h3uU9VJVrZaL+0wC5AFwRNWvs6u+2r7+xu8+hmK3y2OPRPUpIorpXlM4ygcbd7fGvyeZYf7CFocQ3tFkAM3zu+vfBzNtldpeUznsAImLh8NtzwFBpfqYAjawAIGJgTXeRnLKbpcSxudGMl7uwfqf/9tb/9uTey9v+3ln70bn34uPkr8S1RIOfYJX+x0D+5KrqnI/4kAD0cwDgiY/4omrUmrnab3f969/828e01uCLv8+13dmU0cqVud7L6eVXua96qdeAyMCu3805t4uI0LXJ2+5wkrtsx6ef16x+yY/i8uW34MClzdqY1KZSZow4Un6l1JNpw38wsKS53qqKyW59zbBoeKqMiLWcmL/Ps8qWkru3iq/+z17+5YTKgaj6unb7wonLX4sAADrwubHkeGXloKX+3Zb3ml/IVIPgorv8zqL5qlX2iTv5to/Ue5/usKb21M9hgxTVAAARWElEQVR4nO2c+V8TRx/HNxwCQYRsCiK0kSucgcCisERAECSxShQCIhIvQC14tdYDq7a0ah+VWm0p2nqXv/SZe2evGElIQl/z6Q/s7E7ivPP9zveY5HkkSUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISOi/okv9O/ovy+lexSbq8tEdUIPaHXlw0H76VlDwytUrQTa6hAF39NMb8rX927fvv52WpSVH334BdZUO+3cQUbsBPqCBA2laXuIKfoH1LRlTwqOE8Np2rIEt66lXCeF3ZGwk3E51LW1LTFDfEcIvyPgy9VIcTQcZ4fX0rTExUcKHZCwTE14iQzOhfFtJwzo3riuE8Ht6I9i/A4TTS3S4n+5DEmrUoTqg4dQv9HN04+bOnbfY6CEm1PKFNMjnv9sDmHA/HioFSHVLKVrrhnSrZefOnS032fh7GGeCttMPQMSB/SoeDRUQxMBmL3PjCu5Earmh3Qna8wENHrh+jWZDpY4QFgxt5hoT040WjHhnIy8OMMKCzK1c//uE90xe+hnaEl5qijSfpa0QaYCf7mxp2ZCPAqlbIVsAxYydsSUvFdTVFUyQUWh4aCmjrWmj2EFEZVWbHPa1tbV580Obv6RPKvjD3bv345w72N/ff+nT04CGvPlIXnXjK0uSgl8CHfwh5hTmuf1c4X37+vVrthYN+TBgfls4WQvdsO5+iRDv2c8ApdtDzIiPMfAhBixKB/bbIQ7lM6XdiF9i2fvpFa0J5gn3xzzAKGCA3rT3UxjwoD3hd1qLOIjawx/hpTwQs7vPJMKfMKK9l17lmuBLO44evYwv+fOL28PDhpi51MYQ01/CfXnQ0oT3bpD4EuQPoyTWH14bYGdQw7Dx1ed5ZYSaMBMa4vt3fzJb8FZLSwvFunLFqgy4BlpfBBiqs6jVIjiYeguSvdpkKQgL1E/Vp8T/huus6u1Anc/ry19Kv4/a6B7qo+Kba00oyaFQKO2ZIoZutsTdRBEvjdhOUEvHS9MeUc26dSfuLnEJINbZNoXyoVao5Uy25yc1MTQUQRsuMFQQNlhL/rl1G1T3tlSb8dEvvxxJ9nsu+dry20b0qfEQBgSIy8n+52Lr69Gvvho1Z8EjDx7E7DOCl2J8C0PLbT5+Koe3UR1Oabd4HwACme7DAs6yB8a5MQhqGlS0DR6w+NaQFDJe3oiBVkbYPZ6EhcetXxDgqDHTB2F9Y+W8D3FZA0tvWHgPDmwfMH8dY0U42a0RHkre+j+tR8iGoyZz3T148IHF9CukvaCE6JtDUzKf8Jpr7fHWNBHeQ4C/mB/cv2/lpN/S72cu9/fDjYiO8wGhPDHMeatcB43o01WoIW0ftqbUS6Ujv45aARoVvLkTpcWrD3VfX8jXBwYg2hIouTmfVIdGfD5Dqb1Ns2GqM2Jch2p3QPVmORG5KDoE1plMVYy+GzpGQ2lqTRiv7rS0WBMiqXXWx6OB5W3LLDWEtrV2b+tuTbGPxq3gnZuxijfQGRbAuKI33KHDAOnwJB2q48vLy+PpL0yPbKjCuR2C8SacX8DtxgAOLocz4aiU06PR0Ue6G0ce/BTva+HZ6Ihmo+Vum+Qgp7VZ/NVY4cQ8ndJJRUlQa56s61Al7PONZEfSB/nImDzMhDDiXDoKE/4B3SGiDAl9WtFpacOIry0byJudCt9V/X6LT/KIgefeT4Yb38Gff/UfPSqDfK8/Jx0eafPWaW8ZstiHEV82UQpOF0uLPZ6KDSTfh7CqGbz8o4QJ5eFhBhUa13nf+LHu7u5jfHZQvBQwu215wyuPU2q92+FwlXzWa27AA40gO1FEXjps+OWMfOjnZWq10KFDh3SmmmxjhNm+zTai3+MAcsXc8fcMSf5/LbdMc5YMhKCV7z5mt/gsDTC7bcJmUrKECN2OWFNA42Foq741T1KXlmQpMEzdPdRqDC5KIMC+TMzmCSelzZU85nI4PPtiTfn6q1Et/R+J8cVbYMSbTy9b9QlCDnuBwsRVdIT2h3JJklpS5YoJKB0Z/VobPIjxxdukN3+EMKDTCq72XMbJgXx7GOb2oTfDah0pGKOaU/K9rO4eb21t1Zw0RLIDOZYK+Tgbbt5aN0GyAjIFsYnq5+IMDZ7UJR8zI/oSOo+SoWKNZP6Cm6H4e/j18Q/8ipY7ZTRPF4aVY61aag9MTpJ3oW5Jw4qaRW74EoozavGuXbscpXQ4BkcsnFWAUQfcf+0d4GoM3it1gKtdktSzy+UB/1XsY2uHc8Dk0gqXx+NyVOOb/vYONK+jhPswxlu13Qd/fkF2WYQAeanF5MkREHl82QmeKI7Vu92udjLwe9xgVM2PPHBpJS63u7gCEcJ7DmnM5YYp0uF2uf1kNpzj2tdThR7guCSXeOrJvHpPiVbOHGs9RmwYwJsNA5GN18Y5USgQSDjI7HPBFRCvaq9HiY/8E9XgkRtZrqQYXGFCOH3XWL2Dyl3VQwjhnDEM5CiGb6h0uByaXG5mxhDrbfHeIyVLyNsGlez6RYWr8GBDyHhFHuK0Djc1hoEQPnAX1xeTpfsZoYMCwgpP7cATiovJX4e2OwNhHE6wZ/rIA2VyeXlSX/4qE5HIRILMY+Dfr8eO2ePS1kcqGZdiRQgtUlI95kKmdFfIjBC82FVV5amCnxE2dL1nrH3MhV5VP0b/zZCvzYcQVS+XAc1SwzVI4YSO3JCbuhksMiJacnU9xTLb0IVcU23HBWuPRugq8cuyv1qGOxa9VTtcnFzt4Z0DOSfGCrWNjIS1jacGIgGNRqmpyUKqyUrEjApzU4VuG7xkF3NSE2E9DS/442F71cGilCRVuNk70dcVUyMyG0r6c4rJTmCwTpoc1M4sTYk0+nApaGVouR1uAsM5qZGQrZtyqXSOgy1ErdL8HaoafZDUFKEwSwmRx49p5zCJkSjiZI0GWJNIZYrAigmqx+8iYCiS7tI4eELtxXi6n8wpbmcPStkDLEX/0QQiGFZ+XMOQQtRmnShDqFk6JUCokE/Xj5FgxoDO2aE5qYGQORtcIQq4PWQO56Q99HOjquDeD5qnBmFEkJ06FXKTGGxSB5ylTdmgCEs1RoPeCUARd5ViRVivWUqSd9GFGwirjYToOSFE5kEYYYyE/PQxw3kMh4EaHWEimR+6KQj5CFQlwApy0gpudQnaUOZtKD+mOwvbrTOgJ0RxNpQ8QnxIATlRZEAX7WNubtsY9qHH8Fq2DznC2PswlEVyHHbFThSgIsxLEbyi99KEUiIqRVhwR2vB1SV9V2Ok0brhMV0s5QiNsRQVhCyWSqz7iHTWdOItKanMaOihrAs0jxMBxHsGYals1Xz6MuVDZptqfT7kCEk+pJ/FPl0+lJ/kPKF5RQ2F6GWoEzLWUIec4IyYkJNSN2UhpIdWZiy2m2oaD+qalDGXvqbhCUlNg9omXfED174nZ89T8m9PTGj+p8LAo5VoYWbUmgSPolCQ0UyjuvGwnvmURV3qGiup8CBjF2uVHU8I2in01FNRUoEL2Hrms4Aw5zd09XQPEJcIZJUvXkgJoJU5G1Y1LqHpeSEuMbmQaSaEzQVpJDxa3aMjpL0FnVjcwYyj5hAsP0AFYnyK4fvgULimszMrnPhBlB97G11fKed81oRuBwOtKtXm6AiN/aGDz9mEJIII9xD0CADPMRz+6o5VNi65oxi07lVsCaBdd7vrtf3B9fgoW6jFrMd36Hr8av3bWvf40vGG4+SKEOJHT/Fgc85GtYMYpGp45lJi9RgRVoF2yPqcRk9Iz2lcro4SLTNKKw25DSv4UoVQe/CWVLDHMovCH6Y8ycl56peSIoMzWAzxDUJIz9As5+jf2HzWxhFKfuCYvxGPzSGEE9ozNH6S0p+cMMJEBLyUIcsqXf9vlJC4KYlCUKn8FjhxwlMXo/R3GPLK8WeafSaol+LWUWZ81I1TI1vCc1Pc9e/2b3AxLy+PXp9pyM1tYJ6uUkLMP7GHQ0yhn9oRPt+7V0P8vfaE7Ru8AITEhNMAMDf3GXuEmPbsIZHlSQ5HuNnfH3KyIzy5d+85bWQH2BuVevPyXpDRCiI8rj32g634lNo0h9emf7umyY7wxMnn+hsLfyyYJp3q6jrFnTwpkJBFVSQuGPOAm5QjLRV3pPlj7k/TvVWn8zU/XmloYLnfUJFqoRURJiknxqO4CRf+BDacuQANCVceLWyMYhtSQXMp09NkpB4HtM94Rl2kSWG6KP0LVCh/2T017r+y+QuStNb0UpJeNTa+Avuwlz5RV/NOa7SSfAZuyYYzHImshZpUBhr40yEgfD118uSU7uHflWf1jDP/LErSbFOTLEX7+tb5J6sgpOYxXhJ09JtSSUs61AnEz5O6G7WVtefM06KziE3naCoEzHvDxsiE+sAKJj0BvSNIHykMMwad3Lt7t+7G77W1UzZzDZIRoeamloTwm6enT61+bpYqmbxUmrLP9Aa9AYCnteGzXLOXZrAWzJmQU+/H19A7py+e4oyjkn2oNU6Ksd3PIC3Ozf1h/1R2djm5nEE1nQuyRS4LPStn4PCZaVpm6I/y8nJ7b+3tcjqdqxYPplem2fVxYtIzqTbjuefP44gkb+fm3qELg7dGX62BBauAsOsjd7v34sU3BpBnDSTwNBgiz2br+d7duvraTotv0Z/38/OL8K+8HoV/on2NfefB31POrtcc0ak8fWaU2KZEiNNSCjUFksPu3XtNDjh19qwV9sx8WRmoaCS5qKlpTYJVTWFhI0RTo9ysXgTIh1WW/hFhSrfic0xo8tPKykqrfnBhvmz+gwSLtqKiIvD3VV9hYaFpX13EhDojPsvVlFI3PWdNeKIWEFptz5l/IKC03lTU/BJenG8sXDdNekEIeW/kbJjacHoCAZ403QeVzNlYr5steon9MmoRGa1sOM15aWpLgCkQaE5a+OO5T0SfWCEfF6h5uvQhc4Sp/h8GnYi7Kvu0SCc1jQKN/kNgbpraQJNc9Tq7upy4tJle6TU+pc1UpgEuls+9i9PIUSdUlwmNSnl2JvfM8ZQmw3gEqrVYFSmvN10I8WOMKWrmFd4n5gBieXxzPyJA/bkU0MqL1dWLGfx/FQFtaD5g02l9DScOSxvKqziwZkKTOFVZW/vcdHfhXTl10pn3ZR/ML4s2NuLaVFKt9uHpPIvkmB5N1cJKLcaXE4ugJp2niGuz/5JK9BtQmhbiE6ne1yyWUp2igHlWzVVqdbYSKsaZzIcyoPf4erapubkZIcqwMi2Ep4pQ0V5DKFllhHlRKc2qxIR/207gCNdh4d08Cy/1hCad1gjT7qaftOEC9NIZdIlaiyJUesPam3qphTKJ8Bzch5VnY8xY+HBhEV9FNRtK8jeNfbYmZEW4qYhLh/6uBf1EnOUL2IdNRXTJ0aj9FosywouJrzBhnZiK8+gXaP3ftfhsQoNp+kNpUhV98/EjzRq9pzPFggYtvp3Z8GvfdMGzNycNLdHptAcZs06UzwEtbuzFp3D15nRmcDEqvYP1dvlczJN8O8mET3+CmmFanMOEbzfyYmZCpzP9CcJOM5iwPM7GUC+OMHPd9PNtyP36bUvY0LQPF2Y+fIixKeVXhX2N35DKTWWEmZwDF1AsZflisWy+bH7eojkkQh1UYd8aHr0giPYnNhmhmbdvtQpuHrYVZfNa9ojOvpxdY6NXCBAgkuptFSF2ZdyZk70+YMKyf+iNtabmouaml3RIALUeanrV+fpF5oYZsy6UEZExag9ZcyFFGeH5tC0xQVFC0uBLs81FGJF8dbH1CWfIPqSh5iUGLGoi0bOQEq7ZvkWm65953oQmwvU+DFiYrvUlQR/el5VdYPmbeinrgV81QhWm/awpIfH5PooJm/7V7rw6fz7OlnhraL2oqbm5aTbdy9hUrf+7trV9UkhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISK//A26+Lh09QIU2AAAAAElFTkSuQmCC">Wipro
+                                            Limited </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+                                            style="font-size:small;">Duration:&nbsp;</span>&nbsp;<i
+                                            class="fa fa-calendar"
+                                            style="font-size: small;color: black;">&nbsp;&nbsp;2017-2020 (3 Years)
+                                            &nbsp;&nbsp;</i>
+                                        <br /> <br />
+                                        <h4 style="font-size:medium !important;color:black;"><span
+                                                style="color:black;font-size:small;"> Senior Software Engineer
+                                                &nbsp;&nbsp;</span></h4>
+                                        <br />
+                                        I have worked 3 years in Wipro as a Senior Software Engineer at 2017 to 2020.
+                                        <hr />
+                                    </div>
+                                    <div class="col-lg-12">2.
+                                        <span style="color: rgb(14 51 95);"><img
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5rlJIoR-YHC2ZBxaUzkKoEzHFoG5P9KBXaw&usqp=CAU"
+                                                style="width: 5%;"> Infosys Limited </span> &nbsp;&nbsp; <span
+                                            style="font-size:small;">Duration:&nbsp;</span>&nbsp;&nbsp;<i
+                                            class="fa fa-calendar"
+                                            style="font-size: small;color: black;">&nbsp;2014-2017 (3 Years)
+                                            &nbsp;&nbsp;</i>
+                                        <br /> <br />
+                                        <h4 style="font-size:medium !important;color:black;"><span
+                                                style="color:black;font-size:small;"> Software Engineer
+                                                &nbsp;&nbsp;</span></h4>
+                                        <br />
+                                        I have worked 3 years in Infosys as a Software Engineer at 2014 to 2017.
+                                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel" style="box-shadow:2px -2px 4px 2px #e8e8e8 !important;">
+
+                            <div class="bio-graph-heading"
+                                style="box-shadow:2px -2px 4px 2px #e8e8e8 !important;padding:15px !important; background-color:rgb(14 51 95); border:none !important;">
+                                <h4 style="float:left;margin-top:-12px;">Job Summary</h4>
+                            </div>
+                            <div class="panel-body bio-graph-info" style="
+                            height: 25px;
+                        ">
+                                <div class="row" style="height:21px !important;">
+                                    <div class="panel-body" style="height: 145px !important;">
+                                        <div class="row" style="margin-top:-1% !important;">
+                                            <div class="bio-row">
+                                                <p><span>Emp Status </span>: Active</p>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Job Title </span>: Senior software Developer</p>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Job Code </span>: App Development (1322)</p>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Grade</span>: L1</p>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Emp Type: </span>: Permanent Employment</p>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Job Level</span>: Senior Developer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div><br/>
+            <div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel" style="box-shadow:2px -2px 4px 2px #e8e8e8 !important;">
+
+                            <div class="bio-graph-heading"
+                                style="box-shadow:2px -2px 4px 2px #e8e8e8 !important;padding:15px !important; background-color:rgb(14 51 95); border:none !important;">
+                                <h4 style="float:left;margin-top:-12px;">Employment Summary</h4>
+                            </div>
+                            <div class="panel-body bio-graph-info" style="
+                            height: 17px;
+                        ">
+                                <div class="row" style="height:21px !important;">
+                                    <div class="panel-body" style="height: 99px !important;">
+                                        <div class="row" style="margin-top:-1% !important;">
+                                            <div class="bio-row">
+                                                <p><span>HL Manager </span>: <a href="javascript:void(0)">Catherin Therasa</a></p>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Profit Center</span>: 25868</p>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Cost Center </span>:.Net Full Stack(2271)</p>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Hire Date</span>: 28-Feb-2020</p>
+                                            </div>
+                              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div><br/>
+            <div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel" style="box-shadow:2px -2px 4px 2px #e8e8e8 !important;">
+
+                            <div class="bio-graph-heading"
+                                style="box-shadow:2px -2px 4px 2px #e8e8e8 !important;padding:15px !important; background-color:rgb(14 51 95); border:none !important;">
+                                <h4 style="float:left;margin-top:-12px;">Skill sets and Project Summary</h4>
+                            </div>
+                            <div class="panel-body bio-graph-info" style="
+                            height: 17px;
+                        ">
+                                <div class="row" style="height:21px !important;">
+                                    <div class="panel-body" style="height: 99px !important;">
+                                        <div class="row" style="margin-top:-1% !important;">
+                                            <div class="bio-row">
+                                                <p><span>Project </span>: <a href="javascript:void(0)">&nbsp;Clean Water LLC (UK)</a></p>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Position</span>: Development Lead</p>
+                                            </div>                                          
+                                            <div class="bio-row tooltip" style="font-size: small;font-weight:bold;">
+                                               Tech Stack:<span
+                                                style="color: brown;">.Net Core API,React Js,Redux</span> 
+                                              <span class="tooltiptext">Redux, Angualr 10, MS SQL</span>
+                                            </div>
+                                            <div class="bio-row">
+                                                <p><span>Hire Date</span>: 28-Feb-2020</p>
+                                            </div>
+                              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br />

@@ -1,0 +1,43 @@
+
+<style>
+    .hov:hover{
+        border:2px solid rgba(2, 1, 44, 0.856);
+        border-radius:10px;
+        background-color:#0e335f !important;
+        color: white;
+        cursor: pointer !important;
+    }
+</style>
+<div style="text-align: center;">
+    <br/>  
+    <p> <B>Hi {{User}}, Welcome to Employee Records Management Portal</B></p>
+    <!-- <br/>https://qph.fs.quoracdn.net/main-qimg-ef087470b1855c315699306be20f1d30 -->
+    <!-- https://blogimage.vantagecircle.com/vcblogimages/2020/08/Employee-recognition.png -->
+    <!-- https://www.softwaresuggest.com/blog/wp-content/uploads/2019/04/Effective-method-to-Choose-Employee-Performance-Software-That-Eases-HR-Pain-Points-ss-blog.png -->
+    <img src="https://www.softwaresuggest.com/blog/wp-content/uploads/2019/04/performance-management-FB.png" width="50%">
+    <br/><br/><br/>
+    <div class="col-lg-10 pull-right">
+        
+           <div class="col-lg-2 hov" (click)="newemp()">
+            <i class="fa fa-user-plus" style="font-size:xx-large;"></i>
+            <br/><span >NewEmployee</span>
+           </div>
+           <div class="col-lg-2 hov" (click)="emplist()">
+            <i class="fa fa-users" style="font-size:xx-large;"></i>
+            <br/><span >Employees List</span>
+        </div>
+        <div class="col-lg-2 hov" (click)="EmployeeSearch()">
+           
+            <i class="fa fa-search" style="font-size:xx-large;"></i>
+            <br/><span>Search Employee</span>
+        </div>
+        <div class="col-lg-2 hov" (click)="Comments()">
+            <i class="fa fa-address-card" style="font-size:xx-large;"></i>
+            <br/><span>Comments</span>
+        </div>
+        <div class="col-lg-2 hov" (click)="Profiles()">
+            <i class="fa fa-address-card" style="font-size:xx-large;"></i>
+            <br/><span>Profiles</span>
+        </div>
+    </div>
+</div>

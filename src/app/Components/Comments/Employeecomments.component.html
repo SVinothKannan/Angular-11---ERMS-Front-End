@@ -1,0 +1,143 @@
+ <br/><br/>
+  <div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+                    <div class="sparkline13-hd">
+                         <div class="main-sparkline13-hd"> 
+                            <h1><i class="fa fa-address-card"></i>&nbsp;Employee <span class="table-project-n"></span> Comments List  <span style="text-align:center;    margin-left: 26%;
+                                border: 2px solid blueviolet;
+                                padding: 2px 6px 2px 6px;">{{activePage}}</span> <button  class="btn btn-danger" type="button" style="float:right;font-size:small !important;"  data-toggle="modal" data-target="#InformationproModalalert" data-backdrop="static" data-keyboard="false" (click)="CloseBox()">Add Comments</button></h1>
+                             <hr/>
+                        </div>
+                    </div>
+                    <div class="sparkline13-graph">
+                        <div id="myTabContent" class="tab-content custom-product-edit st-prf-pro">                           
+                            <div class="product-tab-list tab-pane" id="reviews" #rrr  [ngClass]="{ 'active':activeTab==='search'}">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center !important;height:450px;overflow-y:scroll;">                                        
+                                        <div *ngIf="CommentsList?.length>0;else nodata" >
+                                        <div class="review-content-section"  *ngFor="let user of CommentsList;let index= index;">                                           
+                                            <div  class="chat-discussion" style="height: auto">
+                                                <div class="chat-message"  style="border: 2px solid #e0e6e0;
+                                                padding-left: 13px;
+                                                padding-right: 40px;
+                                                padding-bottom: 10px;
+                                                box-sizing: border-box;
+                                                box-shadow: aliceblue !important;
+                                                box-shadow: 0px 1px 1px 0px #f0e9e9;">
+                                                    <div class="profile-hdtc">
+                                                          <!-- <img class="message-avatar" src="../../../assets/img/contact/" alt=""> -->
+                                                           <span class="message-avatar"> <i class="fa fa-user" title="Employee Name: {{user.empName}}" style="font-size:x-large !important;">&nbsp;{{user.sNo}}</i></span>
+                                                    </div>
+                                                    <div class="message" style="box-shadow: 0px 0px 1px 2px #0e335f !important;">
+                                                        <a class="message-author" href="#">{{user.empName}}</a>
+                                                        <span class="message-date" style="font-weight:bold;color:navy;font-size:small;"> {{user.createdDate| date:'medium' }}</span>
+                                                        <p class="message-content" style="line-height: 35px !important;">{{user.comments}}
+                                                            
+                                                        </p><br/><p style="width:18%;float:right;color:white;background-color: darkblue;padding: 0px 8px 0px 14px;
+                                                        border-radius: 3px;" title="Author">Author: &nbsp;{{user.author}}</p><br/><br/><br/><br/>
+                                                        <div class="m-t-md mg-t-10 pull-right" style="margin-top:-2em;">
+                                                            <a class="btn btn-xs btn-danger" (click)="Manage(user.commentsId)"><i class="fa fa-edit"></i> Manage </a>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        
+                                        </div>
+                                       
+                                    </div> 
+                                        <ng-template #nodata> <span style="text-align:center !important; margin-top:45px;color: brown;"><b>Comments not available!</b></span><br/><br/><i class="fa fa-thumbs-up" style="font-size:xx-large;"></i></ng-template>
+                                </div>
+                                    <div style="text-align:center;"> <app-pagination [totalRecords]="totalrecords" [recordsPerPage]="recordsPerPage" (onPageChange)="displayActivePage($event)"></app-pagination> </div>
+                                </div>
+                            </div>
+                           <div class="product-tab-list tab-pane" [ngClass]="{ 'active':activeTab==='result'}">
+                              testetet
+                           </div>
+                        </div>          
+                                                       
+                      
+
+
+
+
+<a   [hidden]='true' class="Information Information-color mg-b-10" href="#" data-toggle="modal" data-target="#InformationproModalalert" #myModal data-backdrop="static" data-keyboard="false"></a>
+<div id="InformationproModalalert" class="modal modal-edu-general default-popup-PrimaryModal fade" role="dialog" style="margin-top:35px !important;">
+   
+    <div class="modal-dialog">
+        <form [formGroup]="CommentsForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="modal-content">
+            <div class="modal-header header-color-modal bg-color-1">
+                <h4 class="modal-title"><i class="fa fa-address-card"></i>&nbsp;&nbsp;&nbsp;Add Comments</h4>
+                <div class="modal-close-area modal-close-df">
+                    <a class="close" (click)="CloseBox()" data-dismiss="modal" href="#"><i class="fa fa-close"></i></a>
+                </div>
+            </div>
+            
+            <div class="modal-body" style="padding:25px 0px !important;">
+                <div class="advanced-form-area mg-b-15">
+                    <div class="container-fluid">
+                        
+                        <div class="row">
+                             <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input type="hidden" formControlName="CommentsId" name="CommentsId"/>
+                                    <label for="email" class="pull-left">Select Employee:</label>                                 
+                                      <select data-placeholder="Choose a Country..."  tabindex="-1" formControlName="EmpId" name="EmpId" [ngClass]="{ 'is-invalid': submitted && f.EmpId.errors }" required style="width:260px;height:35px;border-radius:5px;">
+                                        <option value="" style="padding:45px;">----- Select Employee -----</option>
+                                        <option *ngFor="let employees of EmployeesList" value={{employees.empId}}>
+                                            {{employees.empName}}
+                                          </option>							
+                                    </select>                           
+                                    <div *ngIf="submitted&&f.EmpId.invalid" class="invalid-feedback">
+                                        <div *ngIf="f.EmpId.errors?.required" style="color: brown;float:left;">Employee Name is required</div>
+                                    </div>
+                                  </div>                          
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="email" class="pull-left">Select Author:</label>
+                                        <select data-placeholder="Choose a Country..."  tabindex="-1" formControlName="Author" name="Author" [ngClass]="{ 'is-invalid': submitted && f.Author.errors }" required style="width:260px;height:35px;border-radius:5px;">
+                                            <option value="" style="padding:45px;">----- Select Author -----</option>
+                                            <option *ngFor="let authors of AuthorsList" value={{authors.empName}}>
+                                                {{authors.empName}}
+                                              </option>						
+                                        </select>
+                                        <div *ngIf="submitted && (f.Author.invalid && f.Author.errors?.required)" class="invalid-feedback">
+                                            <div *ngIf="f.Author.errors?.required" style="color: brown;float:left;">Author is required</div>
+                                        </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-12">
+                                    <div class="form-group"><br/>
+                                        <label  class="pull-left">Comments:</label>
+                                        <textarea placeholder="Comments" formControlName="Comments" name="Comments" [ngClass]="{ 'is-invalid': submitted && f.Comments.errors }" required></textarea>
+                                        <div *ngIf="submitted && (f.Comments.invalid && f.Comments.errors?.required)" class="invalid-feedback">
+                                            <div *ngIf="f.Comments.errors?.required" style="color: brown;float:left;">Comments is required</div>
+                                        </div><br/>
+                                      </div>  
+                                  </div>
+                             </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer" style="margin-top: -4% !important;background-color:#eee;">
+                <button type="submit" class="btn btn-primary">Process</button>
+                <button class="btn btn-danger" data-dismiss="modal" style="background-color:brown;" (click)="CloseBox()" #closeBtn>Cancel</button>
+                
+            </div>
+        
+        </div>
+   </form>
+    </div>
+
+</div>
+<br/><br/><br/><br/><br/><br/>

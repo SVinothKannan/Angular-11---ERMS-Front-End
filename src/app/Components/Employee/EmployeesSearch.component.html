@@ -1,0 +1,92 @@
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="breadcome-list single-page-breadcome">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="basic-login-inner inline-basic-form">
+                    
+                        <div class="form-group-inner">
+                            <div class="row">
+                                <form [formGroup]="SearchForm" (ngSubmit)="Searchfilter()" novalidate>
+                                
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <label style="font-size: small !important;font-weight: bold;color:rgb(17, 3, 56);">Employee</label>
+                                    <select data-placeholder="Choose a Country..."  tabindex="-1" formControlName="EmpId" name="EmpId" [ngClass]="{ 'is-invalid': submitted && f.EmpId.errors }" required style="width:190px !important;height:35px;border-radius:5px;border: 1px solid #082481;">
+                                        <option value="0" style="padding:45px;">----- Select Employee -----</option>
+                                        <option *ngFor="let emps of EmployeesList" value={{emps.empId}}>
+                                            {{emps.empName}}
+                                          </option>						
+                                    </select>
+                                    <div *ngIf="submitted&&f.EmpId.invalid" class="invalid-feedback">
+                                        <div *ngIf="f.EmpId.errors?.required" style="color: brown;float:left;">Employee required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <label style="font-size: small !important;font-weight: bold;color:rgb(17, 3, 56);">Job Title</label>
+                                    <select data-placeholder="Choose a Country..."  tabindex="-1" formControlName="JobTitle" name="JobTitle" required style="width:190px !important;height:35px;border-radius:5px;border: 1px solid #082481 !important;">
+                                        <option value="" style="padding:45px;">----- Select Jobtitle -----</option>
+                                        <option *ngFor="let emps of EmployeesList" value={{emps.jobTitle}}>
+                                            {{emps.jobTitle}}
+                                          </option>						
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <label style="font-size: small !important;font-weight: bold;color:rgb(17, 3, 56);">Depatment</label>
+                                    <select data-placeholder="Choose a Country..."  tabindex="-1" formControlName="DepartMent" name="DepartMent" required style="width:190px!important;height:35px;border-radius:5px;border: 1px solid #082481 !important;">
+                                        <option value="" style="padding:45px;">----- Select DepartMent -----</option>
+                                        <option *ngFor="let emps of EmployeesList" value={{emps.departMent}}>
+                                            {{emps.departMent}}
+                                          </option>						
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <label style="font-size: small !important;font-weight: bold;">From Date</label>
+                                    <input name="StartDate" id="StartDate" formControlName="StartDate" type="date" class="form-control" style="height:35px !important;" [value]="Date1">
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <label style="font-size: small !important;font-weight: bold;color:rgb(17, 3, 56);">End Date</label>
+                                    <input name="EndDate" id="EndDate" type="date" formControlName="EndDate" class="form-control"  style="height:35px !important;" [value]="Date2">
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <label style="font-size: small !important;font-weight: bold;color:rgb(17, 3, 56);">Search</label><br/>
+                                    <button class="btn btn-warning" ><i class="fa fa-search"></i> Search</button>
+                                </div>
+                            </form>
+                            </div>
+                        
+                        </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+                    <div class="sparkline13-hd">
+                        <div class="main-sparkline13-hd">
+                            <h1><i class="fa fa-users"></i>&nbsp;Employee <span class="table-project-n"></span> List</h1>
+                        </div>
+                    </div>
+                    <div class="sparkline13-graph">
+
+  <ag-grid-angular 
+  style="width:100%; height:360px;" 
+  class="ag-theme-alpine"
+  [frameworkComponents]="frameworkComponents" 
+  [paginationPageSize]="10"
+  [pagination]="true"
+  [rowData]="rowData|async"
+  [columnDefs]="columnDefs">
+</ag-grid-angular>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
